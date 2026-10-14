@@ -9,7 +9,7 @@
 
 The first week focused on building the conceptual, computational, and data foundations for a chooser option pricing study. Work included understanding chooser option payoffs and pricing, reviewing a reference pricing approach, specifying market and macroeconomic data requirements, creating a dedicated Python research environment, testing financial data sources, and collecting historical observations for JPMorgan Chase (JPM), the VIX, and U.S. Treasury yields.
 
-A preliminary cross-source validation compared Yahoo Finance and Nasdaq prices over **1,761 matched JPM trading days (2018–2024)**. Two price discrepancies exceeding **$0.01** were identified: an opening-price difference of approximately **$3.87** on **January 24, 2023**, and a high-price difference of approximately **$0.80** on **June 5, 2023**. On the latter date, the Nasdaq-reported high was lower than its reported open, violating an internal OHLC consistency condition. Daily trading volumes differed on **1,684** matched dates. Original source files were preserved without correction.
+A preliminary cross-source validation compared Yahoo Finance and Nasdaq prices over **1,761 matched JPM trading days (2018–2024)**. Two price discrepancies exceeding **&#36;0.01** were identified: an opening-price difference of approximately **&#36;3.87** on **January 24, 2023**, and a high-price difference of approximately **&#36;0.80** on **June 5, 2023**. On the latter date, the Nasdaq-reported high was lower than its reported open, violating an internal OHLC consistency condition. Daily trading volumes differed on **1,684** matched dates. Original source files were preserved without correction.
 
 Reusable retrieval functions were developed and tested for Yahoo Finance and FRED. The resulting materials form a foundation for W02 preprocessing, date alignment, feature engineering, and the later BSM, Heston Monte Carlo, and machine learning pricing stages.
 
@@ -17,7 +17,7 @@ Reusable retrieval functions were developed and tested for Yahoo Finance and FRE
 
 ### 2.1 Research objective
 
-A **chooser option** grants its holder the right, at a specified choice date \(T_1\), to decide whether the contract will become a call or a put. The selected option expires at \(T_2\). The flexibility to defer this decision provides value under market uncertainty but does not guarantee a positive payoff or eliminate market risk.
+A **chooser option** grants its holder the right, at a specified choice date $T_1$, to decide whether the contract will become a call or a put. The selected option expires at $T_2$. The flexibility to defer this decision provides value under market uncertainty but does not guarantee a positive payoff or eliminate market risk.
 
 The project will investigate three related approaches:
 
@@ -31,28 +31,28 @@ The study will distinguish between **market-observed prices**, **model-generated
 
 ### 2.2 Basic valuation concepts
 
-For European options with strike \(K\) and underlying stock price \(S_T\) at maturity:
+For European options with strike $K$ and underlying stock price $S_T$ at maturity:
 
-\[
+$$
 \text{Call payoff}=\max(S_T-K,0), \qquad
 \text{Put payoff}=\max(K-S_T,0).
-\]
+$$
 
 Option value reflects intrinsic value and time value. A contract's net profit is not the same as its payoff: the initial premium must also be considered when calculating profit.
 
-For a standard chooser contract, the option premium is paid at initiation, not again when the call/put choice is made. At \(T_1\), the rational exercise of the choice feature compares the **continuation values** of the remaining call and put:
+For a standard chooser contract, the option premium is paid at initiation, not again when the call/put choice is made. At $T_1$, the rational exercise of the choice feature compares the **continuation values** of the remaining call and put:
 
-\[
+$$
 \max\bigl(C(T_1),P(T_1)\bigr).
-\]
+$$
 
-For a simple European chooser with the same strike \(K\) and expiry \(T_2\) for both choices, put–call parity gives
+For a simple European chooser with the same strike $K$ and expiry $T_2$ for both choices, put–call parity gives
 
-\[
+$$
 C(T_1)-P(T_1)=S_{T_1}e^{-q(T_2-T_1)}-Ke^{-r(T_2-T_1)},
-\]
+$$
 
-where \(q\) represents continuous dividend yield and \(r\) the applicable risk-free rate under the model's assumptions. Thus the decision is based on relative option values; the simple rule \(S_{T_1}>K\) is not universally appropriate when rates, dividends, and remaining maturity matter.
+where $q$ represents continuous dividend yield and $r$ the applicable risk-free rate under the model's assumptions. Thus the decision is based on relative option values; the simple rule $S_{T_1}>K$ is not universally appropriate when rates, dividends, and remaining maturity matter.
 
 ### 2.3 Reference paper review
 
@@ -60,12 +60,12 @@ The initial reading examined the reference paper's chooser pricing method, espec
 
 | Dimension | Initial paper-reading observation | Planned treatment |
 |---|---|---|
-| Choice rule | A stock-price-versus-strike rule is used in the discussed simulation | Compare call and put continuation values at \(T_1\) |
+| Choice rule | A stock-price-versus-strike rule is used in the discussed simulation | Compare call and put continuation values at $T_1$ |
 | Payoff versus price | Simulated terminal payoffs are central to the presentation | Explicitly calculate the discounted risk-neutral expectation for a theoretical initial value |
 | Volatility | Constant-volatility assumptions | Introduce stochastic variance and volatility forecasts |
 | Evaluation | Simulated pricing examples | Compare model outputs and robustness under consistent inputs and assumptions |
 
-Under idealized BSM assumptions, pricing follows **no-arbitrage and risk-neutral valuation** rather than a direct forecast of the stock's physical expected return. The drift adjustment in geometric Brownian motion and the \(\sqrt{T}\) scaling of Brownian shocks were reviewed as part of the theoretical preparation.
+Under idealized BSM assumptions, pricing follows **no-arbitrage and risk-neutral valuation** rather than a direct forecast of the stock's physical expected return. The drift adjustment in geometric Brownian motion and the $\sqrt{T}$ scaling of Brownian shocks were reviewed as part of the theoretical preparation.
 
 ## 3. W01 Data Requirement Specification
 
@@ -148,24 +148,24 @@ The functions demonstrate basic reuse without editing their internals. Packaging
 
 The comparison covered **1,761 matched JPM trading dates** from 2018 through 2024. The two datasets were loaded from CSV, date fields were converted to a common representation, Nasdaq prices were converted to numeric values, and the records were joined by date using `pandas.merge()`.
 
-For OHLC prices, dates were flagged when the **absolute difference exceeded $0.01**. This threshold is a screening convention, **not** a proof that a quotation is erroneous. For volume, the initial test counted all nonzero share-count differences.
+For OHLC prices, dates were flagged when the **absolute difference exceeded &#36;0.01**. This threshold is a screening convention, **not** a proof that a quotation is erroneous. For volume, the initial test counted all nonzero share-count differences.
 
 ### 5.2 OHLC results
 
-| Field | Number of dates with difference > $0.01 | Flagged date |
+| Field | Number of dates with difference > &#36;0.01 | Flagged date |
 |---|---:|---|
 | Open | **1** | January 24, 2023 |
 | High | **1** | June 5, 2023 |
 | Low | **0** | None above threshold |
 | Close | **0** | None above threshold |
 
-**January 24, 2023 — Opening-price discrepancy.** Yahoo Finance reports an open of approximately **$136.42** and Nasdaq reports **$140.29**, an absolute difference of approximately **$3.87**. Both sources report a high of approximately **$140.29**, low of **$135.00**, and close of **$138.45**. Nasdaq's open equals its high, which is possible and does not itself violate OHLC constraints. The discrepancy remains unresolved. A reported NYSE opening-auction technical incident on the same date is a potential research lead, but has **not** been established as the cause of this specific JPM difference.
+**January 24, 2023 — Opening-price discrepancy.** Yahoo Finance reports an open of approximately **&#36;136.42** and Nasdaq reports **&#36;140.29**, an absolute difference of approximately **&#36;3.87**. Both sources report a high of approximately **&#36;140.29**, low of **&#36;135.00**, and close of **&#36;138.45**. Nasdaq's open equals its high, which is possible and does not itself violate OHLC constraints. The discrepancy remains unresolved. A reported NYSE opening-auction technical incident on the same date is a potential research lead, but has **not** been established as the cause of this specific JPM difference.
 
-**June 5, 2023 — High-price inconsistency.** Yahoo Finance reports both an open and high of approximately **$140.11**, while Nasdaq reports an open of **$140.11** and a high of **$139.31**. The high-price difference is approximately **$0.80**. The Nasdaq row violates
+**June 5, 2023 — High-price inconsistency.** Yahoo Finance reports both an open and high of approximately **&#36;140.11**, while Nasdaq reports an open of **&#36;140.11** and a high of **&#36;139.31**. The high-price difference is approximately **&#36;0.80**. The Nasdaq row violates
 
-\[
+$$
 \mathrm{High}\geq\max(\mathrm{Open},\mathrm{Close}),
-\]
+$$
 
 providing evidence of an **internal OHLC inconsistency** in that source's record. The underlying raw file was not altered.
 

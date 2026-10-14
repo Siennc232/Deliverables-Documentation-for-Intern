@@ -1,59 +1,38 @@
 # Chooser Option Research
 
-**Project:** Advanced Chooser Option Pricing Model with Real-World Data & Machine Learning  
-**Project start:** October 8, 2026  
-**First weekly submission:** Wednesday, October 14, 2026  
-**Planned duration:** 12 weeks, with adjustments based on mentor feedback.
+Advanced Chooser Option Pricing Model with Real-World Data & Machine Learning.
 
-## Research objective
+The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo simulation, ML volatility forecasting and direct model-price prediction. Initial market data covers JPM, VIX and Treasury yields for 2018–2024.
 
-Reproduce a Black–Scholes–Merton (BSM) chooser-option pricing model; use a Heston stochastic-volatility Monte Carlo framework to construct a simulation-based benchmark; investigate machine-learning volatility forecasting and direct option pricing; and build a configurable pricing tool.
+## Week 1 deliverables
 
-The mentor requested that stock tickers and historical periods be changeable through parameters, rather than by rewriting the data-retrieval code.
-
-## Folder guide
-
-| Folder | Purpose |
+| Deliverable | File |
 | --- | --- |
-| `01_References/` | Assigned project brief, research-paper links and PDFs you obtain. |
-| `02_Data/raw/` | **Unmodified** downloaded historical market data; Week 1 collection starts here. |
-| `02_Data/processed/` | Cleaned, aligned data and engineered features (primarily Week 2). |
-| `03_Code/notebooks/` | Jupyter experiments, API connection tests and model validation notebooks. |
-| `03_Code/src/` | Reusable Python scripts (API retrieval, preprocessing, pricing, ML). |
-| `04_Reports/weekly/` | **Empty folder reserved for your own Wednesday weekly reports.** |
-| `04_Reports/final/` | **Empty folder reserved for your final report.** |
-| `05_Models/` | Trained model artifacts / saved parameters later in the project. |
-| `06_Research_Notes/` | Your reading notes, definitions, research log and questions. |
+| Weekly research report | [W01_Weekly_Report.md](04_Reports/weekly/W01_Weekly_Report.md) |
+| Data requirement specification | [W01_Data_Requirement_Specification.md](04_Reports/weekly/W01_Data_Requirement_Specification.md) |
+| API connection tests and preliminary validation | [W01_API_Connection_Test.ipynb](03_Code/W01_API_Connection_Test.ipynb) |
+| Reusable data retrieval functions | [W01_data_extraction.py](03_Code/src/W01_data_extraction.py) |
+| Cross-source findings | [W01_Cross_Source_Validation.md](06_Research_Notes/W01_Cross_Source_Validation.md) |
+| Initial raw datasets | [02_Data/raw](02_Data/raw/) |
+| Day 1 note template (incomplete) | [Day01_Project_Orientation.md](06_Research_Notes/Day01_Project_Orientation.md) |
+| Reference documents | [01_References](01_References/) |
 
-## Day 1 checklist — October 8
+No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.
 
-- [ ] Read the project brief and clarify research goals.
-- [ ] Review option basics: call/put, premium, intrinsic/time value, payoff/profit, chooser choice date.
-- [ ] Start reading the original JPMorgan chooser option paper; record unanswered questions.
-- [x] Create project folders and initial research note template.
+## Data and validation status
 
-See `06_Research_Notes/Day01_Project_Orientation.md`.
+Six original CSV files are preserved without edits. JPM and VIX each contain 1,761 observations. DGS1 and DGS6MO each contain 1,827 observations, including 77 missing-value markers. Nasdaq supplies independent historical comparison data; the Alpha Vantage sample contains 100 recent observations outside the target period. Dividend events are included in the JPM CSV.
 
-## Week 1 planned datasets — NOT YET DOWNLOADED
+Read-only comparison matched 1,761 dates and found one opening-price discrepancy, one high-price discrepancy, and 1,684 volume discrepancies. No raw observations were corrected. Offline comparison and module import checks passed; a complete fresh online notebook run remains pending. Existing notebook outputs are historical execution evidence.
 
-The `raw/` and `processed/` directories are intentionally empty. **No historical market prices have been fabricated or presented as already collected.**
+## Running the notebook
 
-Planned raw data:
-- `JPM_daily_2018_2024.csv` — JPM stock prices.
-- `VIX_daily_2018_2024.csv` — VIX index.
-- `Treasury_Rates_2018_2024.csv` — U.S. Treasury yield series (choose tenor and document it).
+Use Python with pandas, numpy, yfinance, requests, python-dotenv and JupyterLab. Start Jupyter inside this project and open `03_Code/W01_API_Connection_Test.ipynb`. Paths resolve relative to the project root. Existing raw files are preserved by the export helper.
 
-Sources to test: Yahoo Finance (commonly via `yfinance`), Alpha Vantage and FRED. The stock and date parameters should be changeable (e.g., `ticker`, `start_date`, `end_date`). API keys should be provided using environment variables or local non-committed configuration; do not commit them to GitHub.
+For live API requests, configure `FRED_API_KEY` and `ALPHAVANTAGE_API_KEY` locally through environment variables or an ignored `.env` file. Credentials are not included in the repository. Do not print request URLs or credential values into notebook outputs.
 
-## Reference paper
+The reusable module is `03_Code/src/W01_data_extraction.py`. With `03_Code` on Python's import path, import `stock_data` and `fred_data` from `src.W01_data_extraction`.
 
-The project paper was included from the conversation attachment. The original 2021 paper is **linked, not downloaded** here, because the publisher PDF could not be fetched in this environment. See `01_References/Reference_Papers_Links.md`; you can open the PDF link in a browser and save a copy into `01_References/`.
+## Next stage
 
-## How to use on Mac
-
-1. Download and unzip `Chooser_Option_Research.zip`.
-2. Drag the **whole** `Chooser_Option_Research` folder to your Desktop.
-3. Open `06_Research_Notes/Day01_Project_Orientation.md` with VS Code, TextEdit or any Markdown editor.
-4. Keep original datasets in `02_Data/raw/` and put cleaned files into `02_Data/processed/` only after processing.
-
-Created for Week 1, Day 1. This is an **initial research workspace**, not a completed API/data deliverable.
+Week 2 covers cleaning, date alignment, anomaly investigation and feature engineering in processed outputs. Day 1's note template, the separate AAPL switching test and a fresh end-to-end run remain to be completed. BSM, Heston and ML implementations are later research stages.

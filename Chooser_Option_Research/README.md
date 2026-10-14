@@ -5,13 +5,13 @@
 **First weekly submission:** Wednesday, October 14, 2026  
 **Planned duration:** 12 weeks, with adjustments based on mentor feedback.
 
-## Research objective / 研究目标
+## Research objective
 
 Reproduce a Black–Scholes–Merton (BSM) chooser-option pricing model; use a Heston stochastic-volatility Monte Carlo framework to construct a simulation-based benchmark; investigate machine-learning volatility forecasting and direct option pricing; and build a configurable pricing tool.
 
 The mentor requested that stock tickers and historical periods be changeable through parameters, rather than by rewriting the data-retrieval code.
 
-## Folder guide / 文件夹说明
+## Folder guide
 
 | Folder | Purpose |
 | --- | --- |

@@ -14,7 +14,6 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | Reusable data retrieval functions | [W01_data_extraction.py](03_Code/src/W01_data_extraction.py) |
 | Cross-source findings | [W01_Cross_Source_Validation.md](06_Research_Notes/W01_Cross_Source_Validation.md) |
 | Initial raw datasets | [02_Data/raw](02_Data/raw/) |
-| Day 1 note template (incomplete) | [Day01_Project_Orientation.md](06_Research_Notes/Day01_Project_Orientation.md) |
 | Reference documents | [01_References](01_References/) |
 
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.

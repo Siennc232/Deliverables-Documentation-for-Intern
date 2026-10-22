@@ -1,5 +1,7 @@
 ---
----
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 # W02 — Weekly Research Progress Report
@@ -70,4 +72,26 @@ All features are preliminary **end-of-day** descriptors; their timing and lag st
 
 **Open points:** Validate information-availability timing before forecasting; retain the original missing-rate flags; investigate previously flagged Nasdaq/Yahoo Finance discrepancies if those records are used. The present feature dataset is a preprocessing milestone, **not yet a leakage-tested ML training set**.
 
-**Week 3 — BSM Chooser Baseline:** Implement and document the BSM call/put valuations, select the higher **continuation value at the choice date** (`T1`), and calculate the initial chooser value using consistent risk-neutral assumptions and discounting. Keep model-generated prices distinct from observed market transaction prices.
+## Additional Analysis — Feature Correlation
+
+A Pearson correlation matrix was generated for the 10 engineered features.
+
+Key findings: - High correlation between **simple and log returns**. - Strong correlation between the 5-day and 20-day moving averages. - Positive correlation between short- and medium-term historical volatility.
+
+Potential feature redundancy will be evaluated in subsequent ML experiments.
+
+**Planned Feature Importance Analysis:**
+
+\- Future realized volatility as the forecasting target.
+
+\- Simulated Chooser Option prices as the direct pricing target.
+
+![Feature Correlation Matrix](figures/W02_Feature_Correlation.png)
+
+## Next Steps — Mentor Feedback Incorporated
+
+**W03: BSM Chooser Option Baseline** - Incorporate JPM dividend yield. - Match risk-free rates to option maturities. - Implement and validate the Chooser Option pricing formula.
+
+**W04: Heston Monte Carlo** - Simulate stochastic volatility and stock-price paths. - Validate the simulation and generate synthetic pricing benchmarks. - Evaluate additional market friction assumptions.
+
+**W05–W08: Machine Learning** - Develop future volatility forecasting models. - Develop direct Chooser Option pricing models. - Conduct target-specific feature importance analyses. - Compare out-of-sample performance against appropriate benchmarks.

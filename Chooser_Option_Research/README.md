@@ -16,6 +16,15 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | Initial raw datasets | [02_Data/raw](02_Data/raw/) |
 | Reference documents | [01_References](01_References/) |
 
+## Week 2 deliverables
+
+| Deliverable | File |
+|----|----|
+| Preprocessing and feature-engineering notebook | [W02_Data_Preprocessing.ipynb](03_Code/W02_Data_Preprocessing.ipynb) |
+| Aligned market dataset | [W02_Aligned_Market_Data.csv](02_Data/processed/W02_Aligned_Market_Data.csv) |
+| Complete feature dataset | [W02_Feature_Dataset.csv](02_Data/processed/W02_Feature_Dataset.csv) |
+| Weekly research report | [W02_Weekly_Report.md](04_Reports/weekly/W02_Weekly_Report.md) |
+
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.
 
 ## Data and validation status
@@ -34,4 +43,4 @@ The reusable module is `03_Code/src/W01_data_extraction.py`. With `03_Code` on P
 
 ## Next stage
 
-Week 2 covers cleaning, date alignment, anomaly investigation and feature engineering in processed outputs. Day 1's note template, the separate AAPL switching test and a fresh end-to-end run remain to be completed. BSM, Heston and ML implementations are later research stages.
+Week 2 completed cleaning, date alignment and preliminary feature engineering. The next stage is the Week 3 BSM chooser baseline; Heston and ML implementations remain later research stages.

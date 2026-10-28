@@ -25,6 +25,13 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | Complete feature dataset | [W02_Feature_Dataset.csv](02_Data/processed/W02_Feature_Dataset.csv) |
 | Weekly research report | [W02_Weekly_Report.md](04_Reports/weekly/W02_Weekly_Report.md) |
 
+## Week 3 deliverables
+
+| Deliverable | File |
+|----|----|
+| BSM chooser option pricing and sensitivity notebook | [W03_BSM_Chooser_Option_Pricing.ipynb](03_Code/W03_BSM_Chooser_Option_Pricing.ipynb) |
+| Weekly research report | [W03_Weekly_Report.md](04_Reports/weekly/W03_Weekly_Report.md) |
+
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.
 
 ## Data and validation status
@@ -43,4 +50,4 @@ The reusable module is `03_Code/src/W01_data_extraction.py`. With `03_Code` on P
 
 ## Next stage
 
-Week 2 completed cleaning, date alignment and preliminary feature engineering. The next stage is the Week 3 BSM chooser baseline; Heston and ML implementations remain later research stages.
+Week 3 completed the dividend-adjusted BSM chooser baseline and documented its pricing checks and input sensitivities. The next stage is Week 4 Heston Monte Carlo simulation; ML volatility forecasting and direct model-price prediction remain later research stages.

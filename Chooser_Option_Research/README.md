@@ -30,6 +30,7 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | Deliverable | File |
 |----|----|
 | BSM chooser option pricing and sensitivity notebook | [W03_BSM_Chooser_Option_Pricing.ipynb](03_Code/W03_BSM_Chooser_Option_Pricing.ipynb) |
+| Chooser sensitivity analysis chart | [W03_Chooser_Sensitivity.png](04_Reports/weekly/figures/W03_Chooser_Sensitivity.png) |
 | Weekly research report | [W03_Weekly_Report.md](04_Reports/weekly/W03_Weekly_Report.md) |
 
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.

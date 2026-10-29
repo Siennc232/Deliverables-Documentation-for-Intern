@@ -40,10 +40,11 @@ In this decomposition, the **adjusted European put leg expires at the choice dat
 
 The Simple Chooser Option can be decomposed into a standard European call and an adjusted European put:
 
-$$
+
+```math
 V_0 = C_{\mathrm{BSM}}(S_0,K,T_2)
-+ \underbrace{P_{\mathrm{BSM}}(S_0',K',T_1)}_{\text{Adjusted Put Leg}}
-$$
++ \underbrace{P_{\mathrm{BSM}}(S'_0,K',T_1)}_{\text{Adjusted Put Leg}}
+```
 
 where:
 

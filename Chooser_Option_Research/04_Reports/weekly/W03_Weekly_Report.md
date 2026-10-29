@@ -24,7 +24,7 @@ Implemented a **European Simple Chooser Option** baseline for JPM using dividend
 **Pricing method:** Dividend-adjusted BSM European call and put, followed by the simple chooser decomposition:
 
 $$
-V_0 = C(S_0,K,T_2) + P\left(S_0 e^{-q(T_2-T_1)},\, K e^{-f(T_2-T_1)}\, T_1\right).
+V_0 = C(S_0,K,T_2) + P\left(S_0 e^{-q(T_2-T_1)},\ K e^{-f(T_2-T_1)}\, T_1\right).
 $$
 
 In this decomposition, the **adjusted European put leg expires at the choice date** $T_1=0.5$ and uses the 6M rate proxy; the original European call leg expires at $T_2=1.0$ and uses the 1Y proxy. At $T_1$, the holder compares the **call and put continuation values**, rather than looking ahead to final payoffs.

@@ -33,6 +33,14 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | Chooser sensitivity analysis chart | [W03_Chooser_Sensitivity.png](04_Reports/weekly/figures/W03_Chooser_Sensitivity.png) |
 | Weekly research report | [W03_Weekly_Report.md](04_Reports/weekly/W03_Weekly_Report.md) |
 
+## Weeks 4–5 deliverables
+
+| Deliverable | File |
+|----|----|
+| Heston Monte Carlo notebook | [W04_Heston_Monte_Carlo.ipynb](03_Code/W04_Heston_Monte_Carlo.ipynb) |
+| ML volatility research notebook | [W05_ML_Research_Design.ipynb](03_Code/W05_ML_Research_Design.ipynb) |
+| Combined W04–W05 research report | [W04_W05_Combined_Research_Report.md](04_Reports/weekly/W04_W05_Combined_Research_Report.md) |
+
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.
 
 ## Data and validation status
@@ -51,4 +59,4 @@ The reusable module is `03_Code/src/W01_data_extraction.py`. With `03_Code` on P
 
 ## Next stage
 
-Week 3 completed the dividend-adjusted BSM chooser baseline and documented its pricing checks and input sensitivities. The next stage is Week 4 Heston Monte Carlo simulation; ML volatility forecasting and direct model-price prediction remain later research stages.
+Weeks 4–5 established an illustrative Heston Monte Carlo benchmark and a preliminary Random Forest forecast of future realized volatility. Next steps are to improve numerical robustness and walk-forward evaluation, confirm market-calibration and transaction-cost scope, and begin direct-pricing ML experiments; the direct-pricing model remains untrained.

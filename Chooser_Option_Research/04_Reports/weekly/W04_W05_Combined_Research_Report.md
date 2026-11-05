@@ -20,7 +20,7 @@
 **Method:** Correlated stock/variance shocks; full-truncation Euler variance scheme; discounted European call + **adjusted put leg** (expiring at the choice date). Heston parameters are **illustrative, not market-calibrated**: mean reversion $\kappa=2$, vol-of-vol $\xi=0.35$, correlation $\rho=-0.60$, with $v_0=\theta=\sigma_{20d}^{2}$.
 
 | Numerical result | Value |
-|-------------------------------|----------------------------------------:|
+|----|---:|
 | W03 dividend-adjusted BSM Chooser reference | **\$29.8290/share** |
 | Heston Monte Carlo fair value (100,000 paths) | **\$28.9518/share** |
 | Monte Carlo standard error | **\$0.0770/share** |
@@ -44,7 +44,7 @@ We added a **transaction-level execution-cost layer** to the frictionless Heston
 `Net sell proceeds = Heston fair value − cost per share`
 
 | Scenario | Full spread ($/share) | Slippage ($/share) | Buy ($/share) | Sell ($/share) | Round trip (\$/share) |   |   |
-|------------|-----------:|-----------:|-----------:|-----------:|-----------:|
+|----|---:|---:|---:|---:|---:|
 | Low | 0.10 | 0.00 | 29.0083 | 28.8953 | 0.1130 |
 | **Base** | **0.25** | **0.03** | **29.1133** | **28.7903** | **0.3230** |
 | High | 0.50 | 0.08 | 29.2883 | 28.6153 | 0.6730 |
@@ -82,18 +82,23 @@ On the 2024 test period, Random Forest reduced MAE by **19.9%** and RMSE by **15
 ## 5. Direct Pricing ML — Design, Not Yet Trained
 
 | Track | Prediction target | Current status |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | A — Volatility forecasting | Future 20D realized volatility | Preliminary Random Forest and importance analysis completed |
 | B — Direct Chooser pricing | **Synthetic, frictionless Heston theoretical value** | Inputs/target defined; large-scale label generation and ML training pending |
 
 Direct-pricing inputs will include spot, strike, choice/expiry times, rates, dividend yield, and Heston parameters. Execution-adjusted prices can be studied as a *separate* target after agreeing on the market-friction scope. Synthetic labels assess how well ML approximates the assumed Heston model; they do **not** establish superiority against real-world option prices.
 
-## 6. Mentor Alignment Requested & Next Steps
+## 6. Mentor Feedback & Future Work
 
-1.  **Market frictions:** Is the current bid–ask/slippage/fee execution-cost layer sufficient for an initial extension, or should we implement **dynamic delta-hedging transaction costs**?
-2.  **Calibration:** Should we calibrate Heston parameters and friction assumptions to observable JPM option data now, or retain illustrative scenarios for the baseline stage?
-3.  **Direct-pricing target:** Should the first ML model learn frictionless Heston theoretical prices, with execution-cost-adjusted targets evaluated separately?
+Tyler confirmed that static execution-cost adjustments are a valid component of market frictions. The current bid–ask spread, slippage, and transaction-fee analysis is therefore retained as the W04 extension.
 
-**Next:** Confirm these modeling choices; expand numerical robustness/walk-forward forecasting tests; generate independent synthetic pricing labels and begin direct-pricing ML experiments.
+**Future extensions:**
 
-**Project artifacts:** W04 Heston Monte Carlo notebook; W05 ML research notebook; associated figures under `04_Reports/weekly/figures/`.
+- **Dynamic Delta Hedging:** Evaluate cumulative rebalancing costs and hedging P&L under Heston-simulated price paths, with an explicit delta estimation method and hedging rule.
+- **Heston Market Calibration:** Estimate stochastic-volatility parameters using observed option-market data rather than illustrative assumptions.
+
+**Immediate priority — W06–W07:**
+
+Develop a machine-learning surrogate for the **frictionless Heston theoretical Chooser price**. Generate synthetic pricing labels across varying contract and Heston parameters, then evaluate pricing errors, computational efficiency, and feature importance.
+
+Execution-cost-adjusted pricing and dynamic hedging will remain separate extensions rather than initial ML targets.

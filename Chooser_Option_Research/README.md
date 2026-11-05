@@ -39,7 +39,9 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 |----|----|
 | Heston Monte Carlo notebook | [W04_Heston_Monte_Carlo.ipynb](03_Code/W04_Heston_Monte_Carlo.ipynb) |
 | ML volatility research notebook | [W05_ML_Research_Design.ipynb](03_Code/W05_ML_Research_Design.ipynb) |
-| Combined W04–W05 research report | [W04_W05_Combined_Research_Report.md](04_Reports/weekly/W04_W05_Combined_Research_Report.md) |
+| Combined W04–W05 research report (Markdown) | [W04_W05_Combined_Research_Report.md](04_Reports/weekly/W04_W05_Combined_Research_Report.md) |
+| Combined W04–W05 research report (HTML) | [W04_W05_Combined_Research_Report.html](04_Reports/weekly/W04_W05_Combined_Research_Report.html) |
+| Combined W04–W05 research report (PDF) | [W04_W05_Combined_Research_Report.pdf](04_Reports/weekly/W04_W05_Combined_Research_Report.pdf) |
 
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.
 

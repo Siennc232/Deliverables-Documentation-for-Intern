@@ -51,6 +51,7 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | Synthetic Heston pricing dataset | [W06_Synthetic_Heston_Dataset.csv](02_Data/processed/W06_Synthetic_Heston_Dataset.csv) |
 | Direct Heston pricing ML notebook | [W07_Heston_Direct_Pricing_ML.ipynb](03_Code/W07_Heston_Direct_Pricing_ML.ipynb) |
 | W07 model comparison metrics | [W07_Model_Comparison.csv](02_Data/processed/W07_Model_Comparison.csv) |
+| W07 test-error diagnostics against Monte Carlo uncertainty | [W07_Test_Error_Diagnostics.csv](02_Data/processed/W07_Test_Error_Diagnostics.csv) |
 | Selected W07 pricing model used by W08 | [W07_Selected_Pricing_Model.joblib](03_Code/models/W07_Selected_Pricing_Model.joblib) |
 | W07 predicted-versus-Heston chart | [W07_Predicted_vs_Heston.png](04_Reports/weekly/figures/W07_Predicted_vs_Heston.png) |
 | W08 pricing robustness notebook | [W08_Heston_Pricing_Robustness.ipynb](03_Code/W08_Heston_Pricing_Robustness.ipynb) |
@@ -75,4 +76,4 @@ The reusable module is `03_Code/src/W01_data_extraction.py`. With `03_Code` on P
 
 ## Next stage
 
-Weeks 6–8 generated synthetic Heston pricing data, trained and compared direct-pricing ML models, and evaluated pricing robustness. Further work can expand market calibration and stress testing beyond the current synthetic data and parameter ranges.
+Weeks 6–8 generated synthetic Heston pricing data, trained and compared direct-pricing ML models, and evaluated pricing robustness. W07 test-error diagnostics now compare ML pricing errors with Monte Carlo label uncertainty. Further work can expand market calibration and stress testing beyond the current synthetic data and parameter ranges.

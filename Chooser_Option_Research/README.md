@@ -43,6 +43,20 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | Combined W04–W05 research report (HTML) | [W04_W05_Combined_Research_Report.html](04_Reports/weekly/W04_W05_Combined_Research_Report.html) |
 | Combined W04–W05 research report (PDF) | [W04_W05_Combined_Research_Report.pdf](04_Reports/weekly/W04_W05_Combined_Research_Report.pdf) |
 
+## Weeks 6–8 deliverables
+
+| Deliverable | File |
+|----|----|
+| Synthetic Heston pricing notebook | [W06_Synthetic_Heston_Pricing.ipynb](03_Code/W06_Synthetic_Heston_Pricing.ipynb) |
+| Synthetic Heston pricing dataset | [W06_Synthetic_Heston_Dataset.csv](02_Data/processed/W06_Synthetic_Heston_Dataset.csv) |
+| Direct Heston pricing ML notebook | [W07_Heston_Direct_Pricing_ML.ipynb](03_Code/W07_Heston_Direct_Pricing_ML.ipynb) |
+| W07 model comparison metrics | [W07_Model_Comparison.csv](02_Data/processed/W07_Model_Comparison.csv) |
+| Selected W07 pricing model used by W08 | [W07_Selected_Pricing_Model.joblib](03_Code/models/W07_Selected_Pricing_Model.joblib) |
+| W07 predicted-versus-Heston chart | [W07_Predicted_vs_Heston.png](04_Reports/weekly/figures/W07_Predicted_vs_Heston.png) |
+| W08 pricing robustness notebook | [W08_Heston_Pricing_Robustness.ipynb](03_Code/W08_Heston_Pricing_Robustness.ipynb) |
+| W08 feature-importance chart | [W08_Heston_Feature_Importance.png](04_Reports/weekly/figures/W08_Heston_Feature_Importance.png) |
+| W08 moneyness robustness chart | [W08_Pricing_Robustness_Moneyness.png](04_Reports/weekly/figures/W08_Pricing_Robustness_Moneyness.png) |
+
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.
 
 ## Data and validation status
@@ -61,4 +75,4 @@ The reusable module is `03_Code/src/W01_data_extraction.py`. With `03_Code` on P
 
 ## Next stage
 
-Weeks 4–5 established an illustrative Heston Monte Carlo benchmark and a preliminary Random Forest forecast of future realized volatility. Next steps are to improve numerical robustness and walk-forward evaluation, confirm market-calibration and transaction-cost scope, and begin direct-pricing ML experiments; the direct-pricing model remains untrained.
+Weeks 6–8 generated synthetic Heston pricing data, trained and compared direct-pricing ML models, and evaluated pricing robustness. Further work can expand market calibration and stress testing beyond the current synthetic data and parameter ranges.

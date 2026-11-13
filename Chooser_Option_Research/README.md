@@ -57,6 +57,9 @@ The project starts with a BSM pricing benchmark, then plans Heston Monte Carlo s
 | W08 pricing robustness and Greeks analysis notebook | [W08_Heston_Pricing_Robustness.ipynb](03_Code/W08_Heston_Pricing_Robustness.ipynb) |
 | W08 feature-importance chart | [W08_Heston_Feature_Importance.png](04_Reports/weekly/figures/W08_Heston_Feature_Importance.png) |
 | W08 moneyness robustness chart | [W08_Pricing_Robustness_Moneyness.png](04_Reports/weekly/figures/W08_Pricing_Robustness_Moneyness.png) |
+| Combined W06–W08 research report (Markdown) | [W06-W08_Research_Report.md](04_Reports/weekly/W06-W08_Research_Report.md) |
+| Combined W06–W08 research report (HTML) | [W06-W08_Research_Report.html](04_Reports/weekly/W06-W08_Research_Report.html) |
+| Combined W06–W08 research report (PDF) | [W06-W08_Research_Report.pdf](04_Reports/weekly/W06-W08_Research_Report.pdf) |
 
 No separate Week_01_Submission directory is used. Word documents are intentionally excluded from this repository. References to the private Word learning record in research documents are historical; that file is not published here.
 
